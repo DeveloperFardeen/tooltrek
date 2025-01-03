@@ -38,8 +38,5 @@ ToolTrek organizes tools into the following categories:
 ## Vision
 ToolTrek envisions a world where students and professionals have immediate access to the best digital tools, empowering them to thrive in the age of information. It’s more than a platform—it’s a movement toward shared knowledge and opportunity.
 
-## Contact
-For feedback, suggestions, or contributions, reach out at **support@tooltrek.com**.
-
 ---
 Empower your journey. Discover, share, and grow with ToolTrek!
