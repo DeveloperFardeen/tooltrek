@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/homestyle.css"/>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <h1 class="title">Tool Trek</h1>
+            <div class="header-buttons">
+                <button class="hbtn signup">Sign Up</button>
+                <button class="hbtn login">Login</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <span>
+            <h1 id="tagline">The Ultimate Student Toolbox</h1>
+            <h3 id="desc">All important tools(AI and non-AI), resources and applications in one place</h2>
+        </span>
+        
+        <!-- FIRST DIV FIRS DIV -->
+        <div class="container">
+            <!-- Header Section -->
+            <div class="header">
+                <h2 class="title">Popular Tools</h2>
+                <button class="filter-button">
+                    <span class="icon">🔍</span> Filter
+                </button>
+            </div>
+    
+            <!-- Cards Section -->
+            <div class="cards-container">
+                <!-- Card 1 -->
+                <div class="card">
+                    <img src="chatgpt-logo.png" alt="ChatGPT" class="card-image">
+                    <h3 class="card-title">ChatGPT</h3>
+                    <p class="card-subtitle">AI Virtual Assistant</p>
+                    <p class="rating">⭐ 2.2k</p>
+                    <p class="card-category">Category: Content writing, coding, brainstorming ideas</p>
+                    <ul class="card-features">
+                        <li>Free</li>
+                        <li>Easy to use</li>
+                        <li>AI-based</li>
+                    </ul>
+                    <button class="card-button">➤</button>
+                </div>
+    
+                <!-- Card 2 -->
+                <div class="card">
+                    <img src="framer-logo.png" alt="Framer" class="card-image">
+                    <h3 class="card-title">Framer</h3>
+                    <p class="card-subtitle">Drag-drop website Builder</p>
+                    <p class="rating">⭐ 2.2k</p>
+                    <p class="card-category">Category: No-code website, web design</p>
+                    <ul class="card-features">
+                        <li>Free</li>
+                        <li>Easy to use</li>
+                        <li>AI and non-AI</li>
+                    </ul>
+                    <button class="card-button">➤</button>
+                </div>
+    
+                <!-- Card 3 -->
+                <div class="card">
+                    <img src="peerup-logo.png" alt="PeerUp" class="card-image">
+                    <h3 class="card-title">PeerUp</h3>
+                    <p class="card-subtitle">English Practice Environment</p>
+                    <p class="rating">⭐ 2.2k</p>
+                    <p class="card-category">Category: English learning, Communication skill</p>
+                    <ul class="card-features">
+                        <li>Free</li>
+                        <li>Easy to use</li>
+                        <li>AI and non-AI</li>
+                    </ul>
+                    <button class="card-button">➤</button>
+                </div>
+    
+                <!-- Card 4 -->
+                <div class="card">
+                    <img src="codingame-logo.png" alt="CodinGame" class="card-image">
+                    <h3 class="card-title">CodinGame</h3>
+                    <p class="card-subtitle">Gaming & Coding Together</p>
+                    <p class="rating">⭐ 4.2k</p>
+                    <p class="card-category">Category: Coding, hackathon, learning coding</p>
+                    <ul class="card-features">
+                        <li>Free</li>
+                        <li>Moderate to use</li>
+                        <li>Non-AI</li>
+                    </ul>
+                    <button class="card-button">➤</button>
+                </div>
+            </div>
+        </div>
+        <!-- END OF FIRST DIV -->
+    </main>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 24px;
+    color: #006400;
+}
+
+.filter-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button .icon {
+    margin-right: 8px;
+}
+
+.filter-button:hover {
+    background-color: #357a38;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.rating {
+    font-size: 14px;
+    color: #FFA500;
+    margin-bottom: 10px;
+}
+
+.card-category {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px;
+}
+
+.card-features li {
+    font-size: 14px;
+    color: #444;
+}
+
+.card-button {
+    padding: 10px 15px;
+    background-color: #006400;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: #004d00;
+}
+    </style>
+</body>
+</html>
