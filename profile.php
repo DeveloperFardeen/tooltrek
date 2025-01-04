@@ -52,7 +52,7 @@ if ($result->num_rows > 0) {
                         <img src="images/avatar/level-3.png" alt="">
                     </div>
                     <div class="profile-details">
-                        <h2>User Name</h2>
+                        <h2>Welcome, <?php echo htmlspecialchars($user['name']); ?>!</h2>
                         <div class="info-container">
                             <div class="info-box">
                                 <div class="icon">
@@ -60,7 +60,7 @@ if ($result->num_rows > 0) {
                                 </div>
                                 <div class="text">
                                     <h3>Email:</h3>
-                                    <p>example@gmail.com</p>
+                                    <p><?php echo htmlspecialchars($user['email']); ?></p>
                                 </div>
                             </div>
                             <div class="info-box">
@@ -69,7 +69,7 @@ if ($result->num_rows > 0) {
                                 </div>
                                 <div class="text">
                                     <h3>Course:</h3>
-                                    <p>Data Science</p>
+                                    <p><?php echo htmlspecialchars($user['course']); ?></p>
                                 </div>
                             </div>
                             <div class="info-box">
@@ -439,102 +439,6 @@ if ($result->num_rows > 0) {
         </section>
         <hr color="#01783f"/>
 
-
-        <!-- CATEGORIES SECTION START -->
-        <section>
-            <div class="section-container">
-                <div class="section-head">
-                    <h1 class="section-htitle">Categories</h2>
-                    <button class="filter-button">
-                        <i class="bi bi-funnel"></i>&nbsp Filter
-                    </button>
-                </div>
-                <br/>
-                <div class="section-card-container">
-
-                    <!-- Category Card --- 1 -->
-                    <div class="section-card category-card">
-                        <div class="section-card-h">
-                            <h2 style="color:#01783f; text-align: left;">Coding</h3>
-                        </div>
-                        <span><b>Description :</b> manage time task, and project efficiently</span>
-                        <br/><br/>
-                        <span><b>Tools :</b> ChatGPT, Framer, Fontawesome .....</span>
-                    </div>
-                    <!-- Category Card --- 2 -->
-                    <div class="section-card category-card">
-                        <div class="section-card-h">
-                            <h2 style="color:#01783f; text-align: left;">Image EditingT</h3>
-                        </div>
-                        <span><b>Description :</b> manage time task, and project efficiently</span>
-                        <br/><br/>
-                        <span><b>Tools :</b> ChatGPT, Framer, Fontawesome .....</span>
-                    </div>
-                    <!-- Category Card --- 3 -->
-                    <div class="section-card category-card">
-                        <div class="section-card-h">
-                            <h2 style="color:#01783f; text-align: left;">Video Editing</h3>
-                        </div>
-                        <span><b>Description :</b> manage time task, and project efficiently</span>
-                        <br/><br/>
-                        <span><b>Tools :</b> ChatGPT, Framer, Fontawesome .....</span>
-                    </div>
-                    <!-- Category Card --- 4 -->
-                    <div class="section-card category-card">
-                        <div class="section-card-h">
-                            <h2 style="color:#01783f; text-align: left;">Language learning</h3>
-                        </div>
-                        <span><b>Description :</b> manage time task, and project efficiently</span>
-                        <br/><br/>
-                        <span><b>Tools :</b> ChatGPT, Framer, Fontawesome .....</span>
-                    </div>
-                    <!-- Category Card --- 5 -->
-                    <div class="section-card category-card">
-                        <div class="section-card-h">
-                            <h2 style="color:#01783f; text-align: left;">Category 5</h3>
-                        </div>
-                        <span><b>Description :</b> manage time task, and project efficiently</span>
-                        <br/><br/>
-                        <span><b>Tools :</b> ChatGPT, Framer, Fontawesome .....</span>
-                    </div>
-                    <!-- Category Card --- 6 -->
-                    <div class="section-card category-card">
-                        <div class="section-card-h">
-                            <h2 style="color:#01783f; text-align: left;">Category 6</h3>
-                        </div>
-                        <span><b>Description :</b> manage time task, and project efficiently</span>
-                        <br/><br/>
-                        <span><b>Tools :</b> ChatGPT, Framer, Fontawesome .....</span>
-                    </div>
-                    <!-- Category Card --- 7 -->
-                    <div class="section-card category-card">
-                        <div class="section-card-h">
-                            <h2 style="color:#01783f; text-align: left;">Category 7</h3>
-                        </div>
-                        <span><b>Description :</b> manage time task, and project efficiently</span>
-                        <br/><br/>
-                        <span><b>Tools :</b> ChatGPT, Framer, Fontawesome .....</span>
-                    </div>
-                    <!-- Category Card --- 8 -->
-                    <div class="section-card category-card">
-                        <div class="section-card-h">
-                            <h2 style="color:#01783f; text-align: left;">Category 8</h3>
-                        </div>
-                        <span><b>Description :</b> manage time task, and project efficiently</span>
-                        <br/><br/>
-                        <span><b>Tools :</b> ChatGPT, Framer, Fontawesome .....</span>
-                    </div>
-
-                </div>
-                <br/>
-                <div class="view-opt"><span>View More</span></div>
-
-
-            </div>
-        </section>
-        <hr color="#01783f"/>
-
-
         <!-- VIDEO TUTORIAL SECTION STARTS HERE -->
         <section>
             <div class="section-container">
@@ -542,7 +446,7 @@ if ($result->num_rows > 0) {
                 <div class="video-grid">
                 <!-- Video 1 -->
                 <div class="video">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    <iframe src="https://www.youtube.com/embed/BErxU9o_gOk" 
                         title="Video 1" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -551,7 +455,7 @@ if ($result->num_rows > 0) {
                 </div>
                 <!-- Video 2 -->
                 <div class="video">
-                    <iframe src="https://www.youtube.com/embed/3fumBcKC6RE" 
+                    <iframe src="https://www.youtube.com/embed/zJSgUx5K6V0" 
                         title="Video 2" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -560,7 +464,7 @@ if ($result->num_rows > 0) {
                 </div>
                 <!-- Add more videos as needed -->
                 <div class="video">
-                    <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" 
+                    <iframe src="https://www.youtube.com/embed/u9MIwoFWXVg" 
                         title="Video 3" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -583,13 +487,5 @@ if ($result->num_rows > 0) {
             </div>
         </section>
     </main>
-    <div class="container">
-        <h1>Welcome, <?php echo htmlspecialchars($user['name']); ?>!</h1>
-        <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-        <p><strong>Course:</strong> <?php echo htmlspecialchars($user['course']); ?></p>
-        <p><strong>Interests:</strong> <?php echo htmlspecialchars($user['interests']); ?></p>
-        <div class="logout">
-        </div>
-    </div>
 </body>
 </html>
