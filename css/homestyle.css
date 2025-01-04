@@ -207,3 +207,85 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+
+/* Code for Profile Section */
+.section-profile {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-bottom: 50px;
+}
+.avatar-box {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #017801;
+    margin: auto;
+}
+
+.avatar-box img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.profile-details {
+    padding: 20px;
+}
+
+.profile-details * {
+    margin: 0;
+    padding: 0;
+}
+
+.profile-details .info-container {
+    margin: 20px 0;
+}
+
+.profile-details .info-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-details .icon {
+    border: 2px solid;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.profile-details .level-cap {
+    width: 80px;
+    height: 6px;
+    border: 1px solid #071801;
+    border-radius: 3px;
+}
+
+.profile-details .level-cap .level {
+    background: #071801;
+    height: 6px;
+    width: 60%;
+}
+
+/* Badges-section */
+.badges-container img{
+    width: 60px;
+}
+
+/* Interests section */
+.interests-container {
+    display: flex;
+}
+
+.interests-container .interest-btn {
+    padding: 8px 12px;
+    margin: 4px;
+    border: 2px solid #01773f;
+    border-radius: 30px;
+    color: #01773f;
+    font-weight: 600;
+}
+
+.interests-container .interest-btn.active {
+    color: #fff;
+    background: #01773f;
+}
