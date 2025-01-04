@@ -3,6 +3,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* HEADER PORTION CSS       --         HEADER PORTION CSS */
+/* HEADER PORTION CSS       --         HEADER PORTION CSS */
+
+
 .header {
     background-color: #01783f; /* Green background */
     color: white; /* White text */
@@ -43,23 +47,25 @@ body {
 
 
 .signup {
-    background-color: #01783f; /* Blue background */
+    background-color: #01783f; 
     color: white;
 }
 
 .signup:hover {
-    background-color: #005f73; /* Darker blue on hover */
+    background-color: #005f73; 
 }
 
 .login {
-    background-color: white; /* Red background */
+    background-color: white; 
     color: #01783f;
     border-color: white;
 }
 
 .login:hover {
-    background-color: #c2362b; /* Darker red on hover */
+    background-color: #c2362b; 
 }
+
+/* TAGLINE AND DESCRIPTION PART           TAGLINE AND DESCRIPTION PART */
 
 #tagline{
     text-align: center;
@@ -68,4 +74,136 @@ body {
 #desc{
     text-align: center;
     font-weight: lighter;
+}
+
+
+
+
+/* CSS CODE FOR DIFFERENT SECTIONS            CSS CODE FOR DIFFERENT SECTIONS */
+/* CSS CODE FOR DIFFERENT SECTIONS            CSS CODE FOR DIFFERENT SECTIONS */
+
+
+/* CSS for Section Headings */
+.section-container {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    background-color: #ffffff;
+    border-bottom-style: solid;
+    border-width: thick;
+    border-color: #01783f;
+}
+
+.section-htitle {
+    font-size: 24px;
+    color: #006400;
+}
+
+.section-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.section-card {
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card-e{display: flex;}
+.section-card-l h3{display: inline-block;}
+.section-card-l img{
+    max-width: 25%;
+    object-fit: contain;
+    height: auto;
+}
+
+.section-card-e, .section-card-l{
+    display: flex;
+    justify-content: space-around;
+}
+
+.section-card-e ul{
+    list-style-position: outside;
+    text-align: left;
+}
+
+.getd{
+    height: 100%;
+    padding: 3%;
+    padding-top: 10%;
+    padding-left: 5%;
+    font-size: 40px;
+    bottom: 0px;
+}
+
+.filter-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #01783f;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.filter-button:hover {
+    background-color: #357a38;
+}
+
+.view-opt{
+    text-align: right;
+}
+.view-opt span{
+    color: #0066cc;
+    font-size: 25px;
+    font-weight:bold;
+    text-decoration: underline;
+}
+
+
+/* Category Section */
+
+.category-card{
+    padding-top: 0;
+    text-align: left;
+}
+
+
+/* Video Tutorial Section */
+/* Section Styling */
+.video-gallery {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grid Layout */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Video Styling */
+.video iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
