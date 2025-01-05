@@ -24,10 +24,10 @@ CREATE TABLE users (
     email VARCHAR(150) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     role ENUM('admin', 'student', 'moderator') DEFAULT 'student',
-    interests JSON,
+    interests TEXT,
     course VARCHAR(225),
     points INT DEFAULT 0,
-    badges JSON,
+    badges TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -49,12 +49,12 @@ CREATE TABLE tool_details (
     id INT AUTO_INCREMENT PRIMARY KEY,
     tool_id INT,
     description TEXT,
-    features JSON,
-    usages JSON, -- coding, drawing, editing, science, etc. from interests table
+    features TEXT,
+    usages TEXT, -- coding, drawing, editing, science, etc. from interests table
     pricing VARCHAR(100),
     official_link VARCHAR(255),
-    tutorial_links JSON,
-    screenshot_urls JSON,
+    tutorial_links TEXT,
+    screenshot_urls TEXT,
     FOREIGN KEY (tool_id) REFERENCES tools(id)
 );
 
