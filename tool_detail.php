@@ -1,3 +1,89 @@
+<?php
+include 'db/conn.php';
+
+// Get the tool ID from the query string
+$tool_id = isset($_GET['tool_id']) ? (int) $_GET['tool_id'] : 0;
+
+// Ensure a valid tool ID is provided
+if ($tool_id <= 0) {
+    die("Invalid tool ID.");
+}
+
+// Query to fetch tool details
+$sql = "
+    SELECT 
+        t.name AS tool_name,
+        c.name AS category_name,
+        td.description,
+        td.features,
+        td.pricing,
+        td.compatibility,
+        td.official_link,
+        td.desktop_link,
+        td.android_link,
+        td.ios_link,
+        td.video_links,
+        td.tool_icon_file_path,
+        td.tool_preview_file_path
+    FROM 
+        tools t
+    JOIN 
+        tool_details td ON t.id = td.tool_id
+    JOIN 
+        categories c ON t.category_id = c.id
+    WHERE 
+        t.id = ? AND t.status = 'approved'
+";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $tool_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Fetch the tool details
+if ($result->num_rows > 0) {
+    $tool = $result->fetch_assoc();
+} else {
+    die("Tool not found or is not approved.");
+}
+
+$stmt->close();
+$conn->close();
+
+function convertToEmbedURL($url) {
+  // Parse the URL
+  $parsedUrl = parse_url($url);
+
+  // Check if it's a YouTube URL
+  if (isset($parsedUrl['host']) && (strpos($parsedUrl['host'], 'youtube.com') !== false || strpos($parsedUrl['host'], 'youtu.be') !== false)) {
+      // For "youtu.be" short links
+      if ($parsedUrl['host'] === 'youtu.be') {
+          $videoId = ltrim($parsedUrl['path'], '/');
+      }
+      // For "youtube.com" long links
+      elseif (strpos($parsedUrl['host'], 'youtube.com') !== false && isset($parsedUrl['query'])) {
+          parse_str($parsedUrl['query'], $queryParams);
+          $videoId = $queryParams['v'] ?? null;
+      }
+
+      // If video ID is found, return the embed URL
+      if (!empty($videoId)) {
+          return "https://www.youtube.com/embed/" . $videoId;
+      }
+  }
+
+  // Return false if URL is invalid or not a YouTube URL
+  return false;
+}
+
+if ($tool['video_links']) {
+  $videoLinks = explode(', ', $tool['video_links']);
+  $youtubeLinks = [];
+  foreach ($videoLinks as $video) {
+      $youtubeLinks[] = convertToEmbedURL($video);
+  }
+}
+?>
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,10 +115,10 @@
 <div class="content">
 
     <div class="tool-header">
-        <img src="https://static.vecteezy.com/system/resources/previews/021/059/827/original/chatgpt-logo-chat-gpt-icon-on-white-background-free-vector.jpg" alt="Tool Icon">
+        <img src="images/tool_icon/<?php echo htmlspecialchars($tool['tool_icon_file_path']); ?>" alt="Tool Icon">
         <div class="tool-header-content">
-        <h1>ChatGPT (Tool Name)</h1>
-        <p class="category">Category: AI Assistant</p>
+        <h1><?php echo htmlspecialchars($tool['tool_name']); ?></h1>
+        <p class="category">Category: <?php echo htmlspecialchars($tool['category_name']); ?></p>
         <div class="rating">
             <div class="stars">★★★★★</div>
             <span class="count">(4.8/5)</span>
@@ -50,18 +136,24 @@
   <div class="details">
     <h2>Details</h2>
     <br>
-    <p><strong>Price:</strong> Free / Paid</p>
-    <p><strong>Category:</strong> AI Tool</p>
-    <p><strong>Top Features:</strong> Content creation, coding assistance, customer support</p>
-    <p><strong>Compatibility:</strong> Web, Windows, iOS, Android</p><br>
+    <p><strong>Price:</strong> <?php echo htmlspecialchars($tool['pricing']); ?></p>
+    <p><strong>Category:</strong> <?php echo htmlspecialchars($tool['category_name']); ?></p>
+    <p><strong>Top Features:</strong> <?php echo htmlspecialchars($tool['features']); ?></p>
+    <p><strong>Compatibility:</strong> <?php echo htmlspecialchars($tool['compatibility']); ?></p><br>
 
     <!-- Access Links -->
     <p><strong><u>Access Links</u>:</strong></p><br>
-    <p>Web Link: <a href="https://www.chatgpt.com" target="_blank">Visit Tool</a></p>
+    <p>Web Link: <a href="<?php echo htmlspecialchars($tool['official_link']); ?>" target="_blank">Visit Tool</a></p>
     <div class="buttons">
-      <a href="https://apps.microsoft.com/detail/9nt1r1c2hh7j">Download for Windows</a>
-      <a href="https://apps.apple.com/us/app/chatgpt/id6448311069">Download for iOS</a>
-      <a href="https://play.google.com/store/apps/details?id=com.openai.chatgpt&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">Download for Android</a>
+      <?php if ($tool['desktop_link']) : ?>
+        <a href="<?php echo htmlspecialchars($tool['desktop_link']); ?>" target="_blank">Desktop App</a>
+      <?php endif; ?>
+      <?php if ($tool['android_link']) : ?>
+        <a href="<?php echo htmlspecialchars($tool['android_link']); ?>" target="_blank">Android App</a>
+      <?php endif; ?>
+      <?php if ($tool['ios_link']) : ?>
+        <a href="<?php echo htmlspecialchars($tool['ios_link']); ?>" target="_blank">iOS App</a>
+      <?php endif; ?>
     </div>
   </div>
 
@@ -73,15 +165,23 @@
   
   <!-- Embedded Video -->
   <div class="video-container">
-    <iframe 
-        width="300" 
-        height="170" 
-        src="https://www.youtube.com/embed/BErxU9o_gOk?si=iqCBX1LY7-epRVDp" 
-        title="How to Use ChatGPT" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
+    <?php
+    if ($youtubeLinks) {
+      foreach ($youtubeLinks as $link) { 
+      ?>
+        <iframe 
+            width="300" 
+            height="170" 
+            src="<?php echo $link; ?>" 
+            title="How to Use ChatGPT" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+      <?php
+      }
+    }
+    ?>
   </div>
 
   <!-- Documentation Link -->
