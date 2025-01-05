@@ -122,3 +122,5 @@ ALTER TABLE `tool_details`
     ADD `ios_link` TEXT NULL DEFAULT NULL AFTER `android_link`,
     ADD `tool_icon_file_path` VARCHAR(225) NULL DEFAULT NULL AFTER `ios_link`,
     ADD `tool_preview_file_path` TEXT NOT NULL AFTER `tool_icon_file_path`;
+
+ALTER TABLE `tool_details` CHANGE `usages` `video_links` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL;
