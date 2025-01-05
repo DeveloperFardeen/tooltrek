@@ -116,9 +116,11 @@ if ($result->num_rows > 0) {
                 <br><br>
                 <div class="section-head">
                     <h1 class="section-htitle">Contributed Tools</h2>
+                    <a href="tool_form.php">
                     <button class="filter-button">
-                        <i class="bi bi-funnel"></i>&nbsp Filter
+                        <i class="bi bi-upload"></i>&nbsp Contribute
                     </button>
+                    </a>
                 </div>
                 <br/>
                 <div class="section-card-container">
