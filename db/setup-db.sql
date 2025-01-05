@@ -112,3 +112,13 @@ CREATE TABLE favorites (
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (tool_id) REFERENCES tools(id)
 );
+
+-- Add some more columns to tool_details table
+
+ALTER TABLE `tool_details` 
+    ADD `compatibility` TEXT NULL DEFAULT NULL AFTER `screenshot_urls`, 
+    ADD `desktop_link` TEXT NULL DEFAULT NULL AFTER `compatibility`, 
+    ADD `android_link` TEXT NULL DEFAULT NULL AFTER `desktop_link`, 
+    ADD `ios_link` TEXT NULL DEFAULT NULL AFTER `android_link`,
+    ADD `tool_icon_file_path` VARCHAR(225) NULL DEFAULT NULL AFTER `ios_link`,
+    ADD `tool_preview_file_path` TEXT NOT NULL AFTER `tool_icon_file_path`;
