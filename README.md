@@ -34,11 +34,6 @@ ToolTrek organizes tools into the following categories:
 2. **Contribute Tools**: Submit tools you’ve found useful for verification and inclusion.
 3. **Learn and Grow**: Explore detailed tool pages with tutorials, reviews, and user tips.
 4. **Stay Updated**: Receive personalized recommendations for tools tailored to your needs.
-   
-## Benifits
-1. Saves time by centralizing tool discovery and tutorials.
-2. Encourages community engagement through reviews and contributions.
-3. Enhances user productivity by providing tailored recommendations.
 
 ## Vision
 ToolTrek envisions a world where students and professionals have immediate access to the best digital tools, empowering them to thrive in the age of information. It’s more than a platform—it’s a movement toward shared knowledge and opportunity.
